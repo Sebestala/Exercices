@@ -18,7 +18,7 @@ char	*ft_itoa_base(int value, int base)
 
 	val = (long)value;
 	i = 0;
-	if (base < 2 || base > 16 || !(str = (char *)malloc(36 * sizeof(char))))
+	if (base < 2 || base > 16 || !(str = (char *)malloc(36)))
 		return (NULL);
 	if (base == 10 && val < 0)
 	{
@@ -28,14 +28,12 @@ char	*ft_itoa_base(int value, int base)
 	itoa_base(val, base, str, &i);
 	str[i] = '\0';
 	return (str);
-
 }
 
 int		main(int argc, char **argv)
 {
 	if (argc != 3)
 		return (0);
-
 	printf("%s", ft_itoa_base(atoi(argv[1]), atoi(argv[2])));
 	return (0);
 }
