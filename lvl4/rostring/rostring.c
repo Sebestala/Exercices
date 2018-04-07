@@ -33,15 +33,10 @@ void	rostring(char *str)
 	}
 }
 
-
-int		main(int argc, char **argv)
+int		main(int ac, char **av)
 {
-	if (argc < 2)
-	{
-		write (1, "\n", 1);
-		return (0);
-	}
-	rostring(argv[1]);
-	write(1, "\n", 1);
+	if (ac >= 2)
+		rostring(av[1]);
+	write (1, "\n", 1);
 	return (0);
 }

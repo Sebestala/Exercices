@@ -22,12 +22,13 @@ int		main(int ac, char **av)
 		while (1)
 		{
 			n = 1;
-			while (++n <= nb)
+			while (n <= nb)
 			{
+				n++;
 				if (nb % n == 0)
 				{
 					printf("%d", n);
-					nb = nb / n;
+					nb /= n;
 					break ;
 				}
 			}
