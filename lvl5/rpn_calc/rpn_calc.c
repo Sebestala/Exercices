@@ -10,13 +10,12 @@ char	*rev_str(char *str)
 
 	while (str[i])
 		i++;
-	if (!(copy = (char *)malloc(i + 1)))
+	if (!(copy = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	i--;
 	while (i >= 0)
 		copy[j++] = str[i--];
 	copy[j] = '\0';
-	free(str);
 	return (copy);
 }
 
@@ -56,93 +55,114 @@ char	*str_calc(char *str, int i, int op)
 		return (NULL);
 	i -= 2;
 	j = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] != ' ' && i >= 0)
 		tmp[j++] = str[i--];
 	i--;
 	tmp[j] = '\0';
 	tmp = rev_str(tmp);
 	nb2 = atoi(tmp);
 	j = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] != ' ' && i >= 0)
 		tmp[j++] = str[i--];
 	tmp[j] = '\0';
 	tmp = rev_str(tmp);
 	nb1 = atoi(tmp);
 	i++;
+//	printf("||C = %c||\n", str[op]);
+	fflush(stdout);
 	if (str[op] == '+')
 		res = nb1 + nb2;
 	if (str[op] == '-')
 		res = nb1 - nb2;
 	if (str[op] == '/')
+	{
+		if (nb2 == 0)
+		{
+			printf("Error\n");
+			return (NULL);
+		}
 		res = nb1 / nb2;
+	}
 	if (str[op] == '*')
 		res = nb1 * nb2;
+//	printf("||2 = %s||\n", str);
+	fflush(stdout);
 	if (str[op] == '%')
+	{
+		if (nb2 == 0)
+		{
+			printf("Error\n");
+			return (NULL);
+		}
 		res = nb1 % nb2;
+	}
 	j = 0;
-	free(tmp);
 	tmp = itoa(res);
 	while (tmp[j])
 		str[i++] = tmp[j++];
+//	printf("||tmp = %s||\n", tmp);
+	fflush(stdout);
+//	printf("||3 = %s||\n", str);
+	fflush(stdout);
 	op++;
 	while (str[op])
 		str[i++] = str[op++];
 	str[i] = '\0';
-	free(tmp);
+//	printf("||4 = %s||\n", str);
+	fflush(stdout);
 	return (str);
 }
 
 void	rpn_calc(char *str)
 {
 	int		i = 0;
-	int		op;
-	char	*copy;
+	int		op = 0;
+//	char	*copy;
 
 	while (str[i])
 	{
-		while (str[i] && !(str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '%'))
+		while (str[i])
 			i++;
-		op = i;
-		if (str[i])
+		if (str[i - 1] >= '0' && str[i - 1] <= '9')
+			break ;
+		while (str[op] && !(str[op] == '+' || str[op] == '*' || str[op] == '/' || str[op] == '%'))
 		{
-			copy = str_calc(str, i, op);
-			i = 0;
+			if (str[op] == '-' && (str[op + 1] == ' ' || str[op + 1] == '\0'))
+				break ;
+			op++;
 		}
+		str = str_calc(str, op, op);
+//		printf("||%s||\n", str);
+		fflush(stdout);
+		if (str == NULL)
+			return ;
+		i = 0;
+		op = 0;
 	}
-	printf("%s\n", copy);
+	printf("%s\n", str);
 }
 
 int		is_valid(char *str)
 {
 	int		i = 0;
-	int		j = 0;
 	int		op = 0;
 	int		nb = 0;
-	char	*tmp;
 
-	if (!(tmp = (char *)malloc(36)))
-		return (0);
 	while (str[i])
 	{
+		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ' && !(str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '%'))
+			return (0);
 		if (str[i] >= '0' && str[i] <= '9')
 		{
 			while (str[i] >= '0' && str[i] <= '9')
-				tmp[j++] = str[i++];
-			tmp[j] = '\0';
-			j = atoi(tmp);
-			if (j == 0)
-			{
-				free(tmp);
-				return (0);
-			}
-			j = 0;
+				i++;
 			nb++;
 		}
-		if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '%')
+		if ((str[i + 1] == ' ' || str[i + 1] == '\0') && 
+			(str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '%'))
 			op++;
 		i++;
 	}
-	free(tmp);
 	if (nb == op + 1 && nb > 0)
 		return (1);
 	return (0);

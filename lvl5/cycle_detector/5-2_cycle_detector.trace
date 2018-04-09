@@ -1,0 +1,59 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e2r3p21.42.fr
+Darwin 16.7.0 x86_64
+$> date
+Mon Apr  9 18:09:25 CEST 2018
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2018/c-exam-alone-in-the-dark-beginner/practice-exam_20180409/sgarcia2
+
+= Git history ==================================================================
+$> git -C /var/folders/h3/cb3k7vmj5z10_gwjh11qc_hc0000gq/T/tmpotrpNU/user log --pretty='%H - %an, %ad : %s'
+cc36a741fa0c67365a85868822a6650bacd364da - Sebastien GARCIA, Mon Apr 9 18:09:15 2018 +0200 : commit
+983850421340349fd4543b47cdc53d9d1c1c2b22 - Sebastien GARCIA, Mon Apr 9 18:06:16 2018 +0200 : commit
+0e60ec186255929da33ac340f41bb05dadaa1e7c - Sebastien GARCIA, Mon Apr 9 15:17:13 2018 +0200 : commit
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/h3/cb3k7vmj5z10_gwjh11qc_hc0000gq/T/tmpotrpNU/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  752 Apr  9 18:09 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Apr  9 18:09 cycle_detector
+drwxr-xr-x  3 deepthought  deepthought  102 Apr  9 18:09 ft_split
+drwxr-xr-x  3 deepthought  deepthought  102 Apr  9 18:09 rpn_calc
+
+/var/folders/h3/cb3k7vmj5z10_gwjh11qc_hc0000gq/T/tmpotrpNU/user/cycle_detector:
+total 8
+-rw-r--r--  1 deepthought  deepthought  428 Apr  9 18:09 cycle_detector.c
+
+/var/folders/h3/cb3k7vmj5z10_gwjh11qc_hc0000gq/T/tmpotrpNU/user/ft_split:
+total 8
+-rw-r--r--  1 deepthought  deepthought  630 Apr  9 18:09 ft_split.c
+
+/var/folders/h3/cb3k7vmj5z10_gwjh11qc_hc0000gq/T/tmpotrpNU/user/rpn_calc:
+total 8
+-rw-r--r--  1 deepthought  deepthought  3005 Apr  9 18:09 rpn_calc.c
+ 
+= cycle_detector ===============================================================
+$> clang -Wextra -Wall -Werror main.c test_cycle_detector.c cycle_detector.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./b70df3rvykhnwjvbvn1wur1a
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+Grade: 1
+
+= Final grade: 1 ===============================================================

@@ -1,26 +1,24 @@
 #include "list.h"
-#include "stdlib.h"
+#include <stdlib.h>
 
 int		cycle_detector(const t_list *list)
 {
-	long long	*tab;
+	t_list	**tab;
 	int			i = 0;
 	int			j;
-	long long	nb;
 
-	if (!(tab = (long long *)malloc(sizeof(long long) * 142)))
+	if (!(tab = (t_list**)malloc(sizeof(t_list*) * 142)))
 		return (1);
 	while (list->next != NULL)
 	{
 		j = 0;
-		nb = (long long)&list->next;
 		while (j < i)
 		{
-			if (nb == tab[j])
+			if (list->next == tab[j])
 				return (1);
 			j++;
 		}
-		tab[i++] = (long long)&list->next;
+		tab[i++] = list->next;
 		list = list->next;
 	}
 	return (0);

@@ -6,29 +6,20 @@ void	rev_wstr(char *str)
 	int		start = 0;
 	int		end = 0;
 
-	while (str[i])
-		i++;
+	while (str[i++])
 	end = i;
 	while (i > 0)
 	{
-		while (i >= 0 && str[i] != ' ' && str[i] != '	')
+		while (i >= 0 && (str[i] != ' ' || str[i] != '	'))
 			i--;
-		if (str[i + 1] != ' ' && str[i + 1] != '	')
-		{
-			start = i;
-			i++;
-			while (i < end)
-			{
-				write(1, &str[i], 1);
-				i++;
-			}
-			i = start;
-			if (i > 0)
-				write(1, " ", 1);
-		}
-		if (str[i] == ' ' || str[i] == '	')
-			end = i;
-		i--;
+		start = i;
+		i++;
+		while (i < end)
+			write(1, &str[i++], 1);
+		if (start > 0)
+			write(1, " ", 1);
+		end = start;
+		i = start - 1;
 	}
 }
 
