@@ -68,8 +68,6 @@ char	*str_calc(char *str, int i, int op)
 	tmp = rev_str(tmp);
 	nb1 = atoi(tmp);
 	i++;
-//	printf("||C = %c||\n", str[op]);
-	fflush(stdout);
 	if (str[op] == '+')
 		res = nb1 + nb2;
 	if (str[op] == '-')
@@ -85,8 +83,6 @@ char	*str_calc(char *str, int i, int op)
 	}
 	if (str[op] == '*')
 		res = nb1 * nb2;
-//	printf("||2 = %s||\n", str);
-	fflush(stdout);
 	if (str[op] == '%')
 	{
 		if (nb2 == 0)
@@ -100,16 +96,10 @@ char	*str_calc(char *str, int i, int op)
 	tmp = itoa(res);
 	while (tmp[j])
 		str[i++] = tmp[j++];
-//	printf("||tmp = %s||\n", tmp);
-	fflush(stdout);
-//	printf("||3 = %s||\n", str);
-	fflush(stdout);
 	op++;
 	while (str[op])
 		str[i++] = str[op++];
 	str[i] = '\0';
-//	printf("||4 = %s||\n", str);
-	fflush(stdout);
 	return (str);
 }
 
@@ -117,7 +107,6 @@ void	rpn_calc(char *str)
 {
 	int		i = 0;
 	int		op = 0;
-//	char	*copy;
 
 	while (str[i])
 	{
@@ -132,8 +121,6 @@ void	rpn_calc(char *str)
 			op++;
 		}
 		str = str_calc(str, op, op);
-//		printf("||%s||\n", str);
-		fflush(stdout);
 		if (str == NULL)
 			return ;
 		i = 0;
