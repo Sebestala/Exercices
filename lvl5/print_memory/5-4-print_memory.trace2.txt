@@ -1,0 +1,100 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e2r13p3.42.fr
+Darwin 16.7.0 x86_64
+$> date
+Thu Apr 12 12:14:39 CEST 2018
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2018/c-exam-alone-in-the-dark-beginner/practice-exam_20180412/sgarcia
+
+= Git history ==================================================================
+$> git -C /var/folders/b4/xb604j0s221dqs19mskb5p140000gq/T/tmpUnVImA/user log --pretty='%H - %an, %ad : %s'
+8a784a891e4f998ccf99228779c977a0b7f3fb76 - Sebastien GARCIA, Thu Apr 12 12:14:27 2018 +0200 : commit
+70fa20ffdc10ee03c1f8bde55c63f99630062629 - Sebastien GARCIA, Thu Apr 12 10:48:27 2018 +0200 : commit
+1cd665187918b13ff4bb46de9023d4bf31114de7 - Sebastien GARCIA, Thu Apr 12 10:44:33 2018 +0200 : commit
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/b4/xb604j0s221dqs19mskb5p140000gq/T/tmpUnVImA/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  764 Apr 12 12:14 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 12 12:14 ft_itoa
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 12 12:14 options
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 12 12:14 print_memory
+
+/var/folders/b4/xb604j0s221dqs19mskb5p140000gq/T/tmpUnVImA/user/ft_itoa:
+total 8
+-rw-r--r--  1 deepthought  deepthought  376 Apr 12 12:14 ft_itoa.c
+
+/var/folders/b4/xb604j0s221dqs19mskb5p140000gq/T/tmpUnVImA/user/options:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1344 Apr 12 12:14 options.c
+
+/var/folders/b4/xb604j0s221dqs19mskb5p140000gq/T/tmpUnVImA/user/print_memory:
+total 8
+-rw-r--r--  1 deepthought  deepthought  974 Apr 12 12:14 print_memory.c
+ 
+= print_memory =================================================================
+$> clang -Wextra -Wall -Werror print_memory.c main.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./nj4ljibk0wc2hi2t6ebm4xrn
+$> diff -U 3 user_output_test1 test1.output | cat -e
+--- user_output_test1	2018-04-12 12:14:41.000000000 +0200$
++++ test1.output	2018-04-12 12:14:40.000000000 +0200$
+@@ -1,21 +1,21 @@$
+ 0000 0000 1700 0000 9600 0000 ff00 0000 ................$
+ 0c00 0000 1000 0000 2a00 0000 6700 0000 ........*...g...$
+ 0000 0000 0000 0000                     ........$
+-302010000 0000 706050400 0000 b0a090800 0000 f0e0d0c00 0000 ................$
+-1312111000 0000 1716151400 0000 1b1a191800 0000 1f1e1d1c00 0000 ................$
+-2322212000 0000 2726252400 0000 2b2a292800 0000 2f2e2d2c00 0000 ................$
+-3332313000 0000 3736353400 0000 3b3a393800 0000 3f3e3d3c00 0000 ................$
+-4342414000 0000 4746454400 0000 4b4a494800 0000 4f4e4d4c00 0000 ................$
+-5352515000 0000 5756555400 0000 5b5a595800 0000 5f5e5d5c00 0000 ................$
+-6362616000 0000 6766656400 0000 6b6a696800 0000 6f6e6d6c00 0000 ................$
+-7372717000 0000 7776757400 0000 7b7a797800 0000 7f7e7d7c00 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
+-0000 0000 0^P00 0000 0^P00 0000 000 0000 ................$
++0001 0203 0405 0607 0809 0a0b 0c0d 0e0f ................$
++1011 1213 1415 1617 1819 1a1b 1c1d 1e1f ................$
++2021 2223 2425 2627 2829 2a2b 2c2d 2e2f  !"#$%&'()*+,-./$
++3031 3233 3435 3637 3839 3a3b 3c3d 3e3f 0123456789:;<=>?$
++4041 4243 4445 4647 4849 4a4b 4c4d 4e4f @ABCDEFGHIJKLMNO$
++5051 5253 5455 5657 5859 5a5b 5c5d 5e5f PQRSTUVWXYZ[\]^_$
++6061 6263 6465 6667 6869 6a6b 6c6d 6e6f `abcdefghijklmno$
++7071 7273 7475 7677 7879 7a7b 7c7d 7e7f pqrstuvwxyz{|}~.$
++8081 8283 8485 8687 8889 8a8b 8c8d 8e8f ................$
++9091 9293 9495 9697 9899 9a9b 9c9d 9e9f ................$
++a0a1 a2a3 a4a5 a6a7 a8a9 aaab acad aeaf ................$
++b0b1 b2b3 b4b5 b6b7 b8b9 babb bcbd bebf ................$
++c0c1 c2c3 c4c5 c6c7 c8c9 cacb cccd cecf ................$
++d0d1 d2d3 d4d5 d6d7 d8d9 dadb dcdd dedf ................$
++e0e1 e2e3 e4e5 e6e7 e8e9 eaeb eced eeef ................$
++f0f1 f2f3 f4f5 f6f7 f8f9 fafb fcfd feff ................$
+ 0000 0000 0000 0000 0000 0000 0000 0000 ................$
+-0000 0000                               ....$
++0000 0000 00                            .....$
+
+Diff KO :(
+Grade: 0
+
+= Final grade: 0 ===============================================================
