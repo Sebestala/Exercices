@@ -10,7 +10,7 @@ void	rev_wstr(char *str)
 	end = i;
 	while (i > 0)
 	{
-		while (i >= 0 && (str[i] != ' ' || str[i] != '	'))
+		while (i >= 0 && str[i] != ' ' && str[i] != '	')
 			i--;
 		start = i;
 		i++;

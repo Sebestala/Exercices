@@ -18,6 +18,8 @@ void	print_bits(char **tab, int ac)
 	{
 		while (tab[i][j])
 		{
+			if (j == 0 && tab[i][j] != '-')
+				break ;
 			while (str[k])
 			{
 				if (tab[i][j] == str[k])
@@ -52,7 +54,7 @@ int		check_char(char **tab, int ac)
 		while (tab[i][j])
 		{
 			if (j == 0 && tab[i][j] != '-')
-				return (0);
+				break ;
 			if (j > 0 && (tab[i][j] < 'a' || tab[i][j] > 'z'))
 				return (0);
 			if (j > 0 && tab[i][j] == 'h')

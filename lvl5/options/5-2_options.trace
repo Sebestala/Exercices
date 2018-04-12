@@ -1,0 +1,88 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e2r10p16.42.fr
+Darwin 16.7.0 x86_64
+$> date
+Thu Apr 12 12:28:12 CEST 2018
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2018/c-exam-alone-in-the-dark-beginner/practice-exam_20180412/sgarcia2
+
+= Git history ==================================================================
+$> git -C /var/folders/j8/fpg0zwv561bb1kps38083p_c0000gq/T/tmpM7gPNe/user log --pretty='%H - %an, %ad : %s'
+c8a77a6ccabae0c252352f1c2a64290754afcc21 - Sebastien GARCIA, Thu Apr 12 12:26:21 2018 +0200 : commit
+f970abc0efd4aafdea5aee156b255373b2cd1d9f - Sebastien GARCIA, Thu Apr 12 12:19:13 2018 +0200 : commit
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/j8/fpg0zwv561bb1kps38083p_c0000gq/T/tmpM7gPNe/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  500 Apr 12 12:28 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 12 12:28 ft_itoa
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 12 12:28 options
+
+/var/folders/j8/fpg0zwv561bb1kps38083p_c0000gq/T/tmpM7gPNe/user/ft_itoa:
+total 8
+-rw-r--r--  1 deepthought  deepthought  376 Apr 12 12:28 ft_itoa.c
+
+/var/folders/j8/fpg0zwv561bb1kps38083p_c0000gq/T/tmpM7gPNe/user/options:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1387 Apr 12 12:28 options.c
+ 
+= options ======================================================================
+$> clang -Wextra -Wall -Werror options.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./o5gcevhd6nig66hdgod25enq 
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./wyrdzypgotynsya0h5x96fr5 -abcz -w -ijfek -lildali -pirmakn -apizobouzaguoca
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./muleerwvwj1p0c4p1541ptzp -z bonjour -cd -e
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./dj9lqqpyrzqng2p242ps3e3z -a --a
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./szm12ktja8jyralsnd27uct8 -ab% -zd
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./8j512favnxbuizlw6pewzlu5 -abcdefgijklmnopqrstuvwxyz
+$> diff -U 3 user_output_test6 test6.output | cat -e
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./p96gd9f2peeyk12mfoxmuy4u Bonjour
+$> diff -U 3 user_output_test7 test7.output | cat -e
+
+Diff OK :D
+= Test 8 ===================================================
+$> ./38wzjqkjuawt4q33yxj1ksbz -
+$> diff -U 3 user_output_test8 test8.output | cat -e
+
+Diff OK :D
+Grade: 1
+
+= Final grade: 1 ===============================================================
