@@ -1,0 +1,94 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e1r5p2.42.fr
+Darwin 16.7.0 x86_64
+$> date
+Wed Apr 11 16:43:08 CEST 2018
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2018/c-exam-alone-in-the-dark-beginner/practice-exam_20180411/sgarcia4
+
+= Git history ==================================================================
+$> git -C /var/folders/_k/xpkg9d957t3d1r98mkq_jpwc0000gq/T/tmpkecXEl/user log --pretty='%H - %an, %ad : %s'
+103d8b590c4f9b10bb6b0646394e08a59cee3032 - Sebastien GARCIA, Wed Apr 11 16:41:39 2018 +0200 : commit
+77f69371f892d237cc91d613bc0ac13170dc2077 - Sebastien GARCIA, Wed Apr 11 16:10:53 2018 +0200 : commit
+96c54b7918bb655c24605a61e2c91bb12f936745 - Sebastien GARCIA, Wed Apr 11 16:09:48 2018 +0200 : commit
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/_k/xpkg9d957t3d1r98mkq_jpwc0000gq/T/tmpkecXEl/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  775 Apr 11 16:43 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 11 16:43 check_mate
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 11 16:43 ft_itoa_base
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 11 16:43 rostring
+
+/var/folders/_k/xpkg9d957t3d1r98mkq_jpwc0000gq/T/tmpkecXEl/user/check_mate:
+total 16
+-rw-r--r--  1 deepthought  deepthought  4322 Apr 11 16:43 check_mate.c
+
+/var/folders/_k/xpkg9d957t3d1r98mkq_jpwc0000gq/T/tmpkecXEl/user/ft_itoa_base:
+total 8
+-rw-r--r--  1 deepthought  deepthought  692 Apr 11 16:43 ft_itoa_base.c
+
+/var/folders/_k/xpkg9d957t3d1r98mkq_jpwc0000gq/T/tmpkecXEl/user/rostring:
+total 8
+-rw-r--r--  1 deepthought  deepthought  664 Apr 11 16:43 rostring.c
+ 
+= check_mate ===================================================================
+$> clang -Wextra -Wall -Werror check_mate.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./3jkil6t7o91no5y5qx7w1pzk 
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./tlbskcdc4tc3dw54j1ev37o0 '...B.' '.B...' '$%^&*' '...K.' '.....'
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./x6zlre21datqluzavk7axbx0  "...B." ".T..." "....." "...K." "....."
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./o6iyzlz4qsymjl6vbd3aty1u "K"
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./rcchzr70fchi530cikys3awz "BPKP" "PRP." ".Q.." "..P."
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./kensfm8ckbto4j1cx1bvptas "B....." "......" "......" "......" "......" ".....K"
+$> diff -U 3 user_output_test6 test6.output | cat -e
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./m1kjihj1fegithh3rki2ahu1 "K....." "......" "......" "......" "......" ".....B"
+$> diff -U 3 user_output_test7 test7.output | cat -e
+
+Diff OK :D
+= Test 8 ===================================================
+$> ./xrmm81cv4yqn8k6upncbzly7 '........' '........' '.P....P.' '...B.B..' '....Q...' '..R..R..' '......K.' '...R....'
+$> diff -U 3 user_output_test8 test8.output | cat -e
+
+Diff OK :D
+Grade: 1
+
+= Final grade: 1 ===============================================================

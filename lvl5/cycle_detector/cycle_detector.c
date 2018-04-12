@@ -9,16 +9,16 @@ int		cycle_detector(const t_list *list)
 
 	if (!(tab = (t_list**)malloc(sizeof(t_list*) * 142)))
 		return (1);
-	while (list->next != NULL)
+	while (list != NULL)
 	{
 		j = 0;
 		while (j < i)
 		{
-			if (list->next == tab[j])
+			if (list == tab[j])
 				return (1);
 			j++;
 		}
-		tab[i++] = list->next;
+		tab[i++] = (t_list*)list;
 		list = list->next;
 	}
 	return (0);
